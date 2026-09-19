@@ -12,7 +12,7 @@ scripts in the Marlpde checkout; ongoing model runs do not depend on this copy.
   `--rhythmite-tstar-years` if the Rhythmite runs used another value.
 - Marlpde HDF5 output: `L_*/LMAHeureuxPorosityDiff.hdf5`. The time scale is
   read from each file's `Tstar` attribute.
-- Current Marlpde lengths: 500, 625, 750, 875, 1000, 1125 cm. Add new lengths
+- Current Marlpde lengths: 500, 625, 750, 875, 1000, 1125, 1250 cm. Add new lengths
   to `MARLPDE_LENGTHS` when their completed output is available.
 
 The input data are not copied into this repository. Record the model commit,

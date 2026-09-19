@@ -17,7 +17,7 @@ from utility import oscillation_onset
 # artefacts rather than physical model behaviour.
 MODEL_LENGTHS = np.array([500, 625, 750, 875, 1000, 1125, 1250])
 PREDICTION_LENGTHS = np.array([1125, 1250])
-MARLPDE_LENGTHS = np.array([500, 625, 750, 875, 1000, 1125])
+MARLPDE_LENGTHS = np.array([500, 625, 750, 875, 1000, 1125, 1250])
 
 
 def power_law(length, time_at_1000, exponent):
