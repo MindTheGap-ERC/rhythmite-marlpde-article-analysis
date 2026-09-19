@@ -1,0 +1,15 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+numpy = "==1.23.5"
+scipy = "==1.15.3"
+matplotlib = "==3.10.8"
+h5py = "==3.15.1"
+
+[dev-packages]
+
+[requires]
+python_version = "3.11"

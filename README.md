@@ -20,17 +20,21 @@ run parameters, file locations, and archive identifiers with the manuscript.
 
 ## Environment
 
-Use Python 3.11 and install the versions in `requirements.txt`, for example:
+Use Python 3.11 and [Pipenv](https://pipenv.pypa.io/). Install the locked
+dependencies with:
 
 ```bash
-python -m venv .venv
-.venv/bin/python -m pip install -r requirements.txt
+pipenv sync
 ```
+
+`Pipfile.lock` records the complete environment used for the analysis. Use
+`pipenv install` when intentionally changing a dependency and commit the
+updated `Pipfile.lock`.
 
 ## Make the figure
 
 ```bash
-.venv/bin/python plot_rhythmite_times_against_length.py \
+pipenv run python plot_rhythmite_times_against_length.py \
   --rhythmite-directory /path/to/rhythmite_manuscript_runs/Larger_system \
   --reference-500-file /path/to/rhythmite_manuscript_runs/resolution/200nnx/solution_x_000199.ascii \
   --marlpde-results-directory /path/to/Results \
