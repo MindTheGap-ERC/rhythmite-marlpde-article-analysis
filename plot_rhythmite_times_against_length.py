@@ -13,9 +13,10 @@ from extract_and_analyse_data_from_ascii_files import (
 from utility import oscillation_onset
 
 
-# L=1625 is deliberately excluded: its apparent oscillations are numerical
-# artefacts rather than physical model behaviour.
-MODEL_LENGTHS = np.array([500, 625, 750, 875, 1000, 1125, 1250])
+# The L=1625 Rhythmite onset is included provisionally and excluded from the
+# fit while its numerical robustness is investigated.
+MODEL_LENGTHS = np.array([500, 625, 750, 875, 1000, 1125, 1250, 1625])
+FIT_MAX_LENGTH = 1250
 EXTRAPOLATION_LENGTHS = np.array([1625])
 MARLPDE_LENGTHS = np.array([500, 625, 750, 875, 1000, 1125, 1250, 1625])
 
@@ -140,7 +141,23 @@ def plot_times(
         label="Rhythmite: first minimum of U", zorder=6,
     )
 
-    valid = np.isfinite(lengths) & np.isfinite(rhythmite_onsets) & (lengths > 0)
+    provisional = lengths == 1625
+    if np.any(provisional & np.isfinite(rhythmite_onsets)):
+        provisional_index = np.flatnonzero(provisional & np.isfinite(rhythmite_onsets))[0]
+        ax.annotate(
+            "provisional Rhythmite point",
+            xy=(lengths[provisional_index], rhythmite_onsets[provisional_index]),
+            xytext=(-10, -28), textcoords="offset points",
+            ha="right", fontsize=8, color="tab:blue",
+            arrowprops={"arrowstyle": "-", "color": "tab:blue", "linewidth": 0.8},
+        )
+
+    valid = (
+        np.isfinite(lengths)
+        & np.isfinite(rhythmite_onsets)
+        & (lengths > 0)
+        & (lengths <= FIT_MAX_LENGTH)
+    )
     x, y = lengths[valid], rhythmite_onsets[valid]
     if np.unique(x).size >= 2:
         parameters, covariance = curve_fit(

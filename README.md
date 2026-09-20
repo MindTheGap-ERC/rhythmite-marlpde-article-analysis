@@ -45,9 +45,10 @@ The script writes PDF and SVG. Its upper panel shows the measured onset times,
 the Rhythmite power-law fit, and two Rhythmite velocity diagnostics. The lower
 panel shows `100 * (Marlpde onset / Rhythmite onset - 1)` at matching lengths.
 Onset is estimated from cCO3 at the deepest grid node with prominence 0.01 and
-six alternating extrema. The fit uses only measured Rhythmite onsets and is
-extrapolated to 1625 cm. No paired relative difference is shown at 1625 cm,
-because Rhythmite has no reliable measured onset there.
+six alternating extrema. The Rhythmite onset at 1625 cm is included
+provisionally in the points and paired relative differences, but excluded from
+the power-law fit. The fit uses the 500--1250 cm Rhythmite onsets and is
+extrapolated to 1625 cm.
 
 `plot_evolution_at_depth.py` can inspect an individual Marlpde HDF5 file;
 `extract_and_analyse_data_from_ascii_files.py` can inspect an individual
