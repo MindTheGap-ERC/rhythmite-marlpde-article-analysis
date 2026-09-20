@@ -16,8 +16,8 @@ from utility import oscillation_onset
 # L=1625 is deliberately excluded: its apparent oscillations are numerical
 # artefacts rather than physical model behaviour.
 MODEL_LENGTHS = np.array([500, 625, 750, 875, 1000, 1125, 1250])
-PREDICTION_LENGTHS = np.array([1125, 1250])
-MARLPDE_LENGTHS = np.array([500, 625, 750, 875, 1000, 1125, 1250])
+EXTRAPOLATION_LENGTHS = np.array([1625])
+MARLPDE_LENGTHS = np.array([500, 625, 750, 875, 1000, 1125, 1250, 1625])
 
 
 def power_law(length, time_at_1000, exponent):
@@ -154,6 +154,13 @@ def plot_times(
             color="tab:blue", linewidth=1.3,
             label="Rhythmite: power-law fit", zorder=2,
         )
+        extrapolation_lengths = np.linspace(x.max(), marlpde_lengths.max(), 100)
+        ax.plot(
+            extrapolation_lengths,
+            power_law(extrapolation_lengths, *parameters),
+            ":", color="tab:blue", linewidth=1.3,
+            label="Rhythmite: power-law extrapolation", zorder=2,
+        )
         r_squared, adjusted = fit_scores(y, power_law(x, *parameters), 2)
         ax.text(
             0.02, 0.98,
@@ -167,8 +174,8 @@ def plot_times(
         parabola_a = np.dot(x_squared, y) / np.dot(x_squared, x_squared)
         parabola_r2, parabola_adjusted = fit_scores(y, parabola_a * x_squared, 1)
         print(f"Parabola: n={y.size}, k=1, R²={parabola_r2:.8f}, adjusted R²={parabola_adjusted:.8f}")
-        for length, prediction in zip(PREDICTION_LENGTHS, power_law(PREDICTION_LENGTHS, *parameters)):
-            print(f"L={length} cm: fitted t_onset={prediction:.2f} kyr")
+        for length, prediction in zip(EXTRAPOLATION_LENGTHS, power_law(EXTRAPOLATION_LENGTHS, *parameters)):
+            print(f"L={length} cm: extrapolated t_onset={prediction:.2f} kyr")
 
     rhythmite_by_length = dict(zip(lengths, rhythmite_onsets))
     paired = [
@@ -192,7 +199,8 @@ def plot_times(
     )
     difference_ax.set_xlabel("model length L [cm]")
     difference_ax.grid(axis="y", color="0.9")
-    ax.set_ylabel("time [kyr]")
+    ax.set_yscale("log")
+    ax.set_ylabel("time [kyr] (log scale)")
     ax.legend(loc="upper left", bbox_to_anchor=(0, 0.85), frameon=False, fontsize=9)
     fig.align_ylabels()
     output_stem = Path(output_stem)
