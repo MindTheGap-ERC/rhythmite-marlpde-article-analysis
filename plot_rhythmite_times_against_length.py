@@ -13,11 +13,7 @@ from extract_and_analyse_data_from_ascii_files import (
 from utility import oscillation_onset
 
 
-# The L=1625 Rhythmite onset is included provisionally and excluded from the
-# fit while its numerical robustness is investigated.
 MODEL_LENGTHS = np.array([500, 625, 750, 875, 1000, 1125, 1250, 1625])
-FIT_MAX_LENGTH = 1250
-EXTRAPOLATION_LENGTHS = np.array([1625])
 MARLPDE_LENGTHS = np.array([500, 625, 750, 875, 1000, 1125, 1250, 1625])
 
 
@@ -141,58 +137,38 @@ def plot_times(
         label="Rhythmite: first minimum of U", zorder=6,
     )
 
-    provisional = lengths == 1625
-    if np.any(provisional & np.isfinite(rhythmite_onsets)):
-        provisional_index = np.flatnonzero(provisional & np.isfinite(rhythmite_onsets))[0]
-        ax.annotate(
-            "provisional Rhythmite point",
-            xy=(lengths[provisional_index], rhythmite_onsets[provisional_index]),
-            xytext=(-10, -28), textcoords="offset points",
-            ha="right", fontsize=8, color="tab:blue",
-            arrowprops={"arrowstyle": "-", "color": "tab:blue", "linewidth": 0.8},
-        )
-
     valid = (
-        np.isfinite(lengths)
-        & np.isfinite(rhythmite_onsets)
-        & (lengths > 0)
-        & (lengths <= FIT_MAX_LENGTH)
+        np.isfinite(lengths) & np.isfinite(rhythmite_onsets)
+        & (lengths > 0) & (rhythmite_onsets > 0)
     )
     x, y = lengths[valid], rhythmite_onsets[valid]
-    if np.unique(x).size >= 2:
-        parameters, covariance = curve_fit(
-            power_law, x, y, p0=(y[np.argmax(x)], 2.0),
-            bounds=([0, 0], [np.inf, np.inf]),
-        )
-        time_at_1000, b = parameters
-        fit_lengths = np.linspace(x.min(), x.max(), 200)
-        ax.plot(
-            fit_lengths, power_law(fit_lengths, *parameters), "--",
+    if np.unique(x).size < 2:
+        raise ValueError("At least two distinct positive lengths/onsets are required")
+    parameters, _ = curve_fit(
+        power_law, x, y, p0=(y[np.argmax(x)], 2.0),
+        # sigma=y makes the objective sum(((prediction - y) / y)**2).
+        # These weights express relative error, not measured uncertainties.
+        sigma=y,
+        bounds=([0, 0], [np.inf, np.inf]),
+    )
+    fit_lengths = np.linspace(x.min(), x.max(), 300)
+    ax.plot(fit_lengths, power_law(fit_lengths, *parameters), "--",
             color="tab:blue", linewidth=1.3,
-            label="Rhythmite: power-law fit", zorder=2,
-        )
-        extrapolation_lengths = np.linspace(x.max(), marlpde_lengths.max(), 100)
-        ax.plot(
-            extrapolation_lengths,
-            power_law(extrapolation_lengths, *parameters),
-            ":", color="tab:blue", linewidth=1.3,
-            label="Rhythmite: power-law extrapolation", zorder=2,
-        )
-        r_squared, adjusted = fit_scores(y, power_law(x, *parameters), 2)
-        ax.text(
-            0.02, 0.98,
-            rf"Rhythmite fit: $t={time_at_1000:.1f}(L/1000\,\mathrm{{cm}})^{{{b:.3f}}}$ kyr"
-            + "\n" + rf"$R^2_\mathrm{{adj}}={adjusted:.5f}$",
-            transform=ax.transAxes, va="top", fontsize=9,
-        )
-        print(f"Power-law fit: t = A (L / 1000 cm)^b, A={time_at_1000:.8f} kyr, b={b:.8f}")
-        print(f"Power law: n={y.size}, k=2, R²={r_squared:.8f}, adjusted R²={adjusted:.8f}")
-        x_squared = x**2
-        parabola_a = np.dot(x_squared, y) / np.dot(x_squared, x_squared)
-        parabola_r2, parabola_adjusted = fit_scores(y, parabola_a * x_squared, 1)
-        print(f"Parabola: n={y.size}, k=1, R²={parabola_r2:.8f}, adjusted R²={parabola_adjusted:.8f}")
-        for length, prediction in zip(EXTRAPOLATION_LENGTHS, power_law(EXTRAPOLATION_LENGTHS, *parameters)):
-            print(f"L={length} cm: extrapolated t_onset={prediction:.2f} kyr")
+            label="Rhythmite: relative-error power-law fit", zorder=2)
+    a, b = parameters
+    relative_pct = 100 * (power_law(x, *parameters) / y - 1)
+    rms_pct = np.sqrt(np.mean(relative_pct**2))
+    max_pct = np.max(np.abs(relative_pct))
+    ax.text(
+        0.02, 0.98,
+        rf"Rhythmite fit: $t={a:.1f}(L/1000\,\mathrm{{cm}})^{{{b:.3f}}}$ kyr"
+        + "\n" + f"Relative error: RMS {rms_pct:.1f}%, max |error| {max_pct:.1f}%",
+        transform=ax.transAxes, va="top", fontsize=9,
+    )
+    print(f"Power-law fit: n={y.size}, A={a:.8f} kyr, b={b:.8f}; "
+          f"RMS relative error={rms_pct:.4f}%, max absolute relative error={max_pct:.4f}%")
+    for length, observed, residual in zip(x, y, relative_pct):
+        print(f"L={length:g} cm: onset={observed:.3f} kyr, fit residual={residual:+.4f}%")
 
     rhythmite_by_length = dict(zip(lengths, rhythmite_onsets))
     paired = [

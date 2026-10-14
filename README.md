@@ -41,16 +41,25 @@ pipenv run python plot_rhythmite_times_against_length.py \
   --output-stem figures/rhythmite_marlpde_onset --no-show
 ```
 
-The script writes PDF and SVG to `figures/` by default (relative to the working
-directory), creating the output directory if needed. Use `--output-stem` to
-choose a different output path. Its upper panel shows the measured onset times,
-the Rhythmite power-law fit, and two Rhythmite velocity diagnostics. The lower
-panel shows `100 * (Marlpde onset / Rhythmite onset - 1)` at matching lengths.
-Onset is estimated from cCO3 at the deepest grid node with prominence 0.01 and
-six alternating extrema. The Rhythmite onset at 1625 cm is included
-provisionally in the points and paired relative differences, but excluded from
-the power-law fit. The fit uses the 500--1250 cm Rhythmite onsets and is
-extrapolated to 1625 cm.
+The script writes PDF and SVG to `figures/` by default, creating the
+output directory if needed. Use `--output-stem` to select another path.
+The upper panel shows onset and velocity diagnostics; the lower panel shows
+`100 * (Marlpde - Rhythmite) / Rhythmite` for the onset times.
+
+The power-law fit uses all eight Rhythmite onsets over 500–1625 cm,
+including the fine-sampled 1625 cm result as an ordinary observation.
+Weighted least squares minimizes `sum(((fit - onset) / onset)**2)`,
+using `sigma=onset` in `curve_fit` (weights proportional to `1/onset**2`).
+This weights equal percentage errors equally; the weights are not measured
+uncertainties. This is not a logarithmic fit. The figure reports RMS and
+maximum absolute percentage errors instead of R²; signed per-point residuals
+are printed to the console.
+The logarithmic display axis does not change the fitting objective.
+The fit is an empirical description, not evidence of a physical scaling law.
+
+Onset detection is unchanged: cCO3 at the deepest grid point, prominence
+0.01, and six alternating extrema. Numerical convergence remains an open
+question for the full series, without singling out 1625 cm.
 
 `plot_evolution_at_depth.py` can inspect an individual Marlpde HDF5 file;
 `extract_and_analyse_data_from_ascii_files.py` can inspect an individual

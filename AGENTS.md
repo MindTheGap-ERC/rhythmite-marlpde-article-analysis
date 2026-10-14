@@ -45,15 +45,14 @@ Marlpde cCO3 onset times at the deepest node, in kyr:
 - 1250 cm: 8653.629
 - 1625 cm: 44252.450
 
-The fine-sampled Rhythmite run at 1625 cm gives 44280.808 kyr. A longer,
-coarser Rhythmite output gives 44275.533 kyr. Include the fine-sampled value as
-a provisional point and in the paired relative difference. Exclude it from the
-power-law fit until its numerical robustness has been investigated further.
+Decision updated 14 October 2026 by explicit user instruction: treat the
+fine-sampled Rhythmite result at 1625 cm (44280.808 kyr) as an ordinary
+observation. Include all eight lengths in the relative-error least-squares
+power-law fit, minimizing sum(((fit - onset) / onset)**2) with sigma=onset.
+Report RMS and maximum absolute percentage errors instead of R². Do not mark it provisional or draw an extrapolation segment.
+The coarser output gives 44275.533 kyr; use the fine-sampled result.
 
-Fit the Rhythmite power law only over 500--1250 cm. The current fit is
-`t = 2824.35599703 * (L / 1000 cm)^4.99201811 kyr`, with adjusted R-squared
-0.99888093. Its extrapolation to 1625 cm is 31878.89 kyr. Show the fit as a
-dashed line over its fitted range and its extrapolation as a dotted line.
+Numerical convergence remains to be investigated for the whole series.
 
 At 1625 cm, Marlpde is about 28.36 kyr earlier than fine-sampled Rhythmite, a
 relative difference of about -0.064 percent. The detected onset is unchanged
@@ -67,15 +66,12 @@ shared resolution effect has not yet been excluded.
 - Marlpde onset: orange cross.
 - Rhythmite first zero of U: open dark-gray square.
 - Rhythmite first minimum of U: open gray triangle.
-- Label the Rhythmite 1625 cm point as provisional.
 - Do not horizontally offset overlapping data markers.
 
 ## Open scientific work
 
-- Investigate whether the 1625 cm oscillations persist at another spatial
-  resolution before treating the Rhythmite point as definitive.
-- Decide how the 1625 cm result affects the interpretation of the power-law
-  extrapolation in the manuscript.
+- Investigate spatial and temporal convergence for the full series.
+- Assess whether the empirical power law adequately describes the data.
 - Insert the final PDF figure and an updated caption into the Overleaf article.
 - Record model commit identifiers, parameters, input locations, and archive
   identifiers before publication.
