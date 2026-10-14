@@ -75,3 +75,34 @@ shared resolution effect has not yet been excluded.
 - Insert the final PDF figure and an updated caption into the Overleaf article.
 - Record model commit identifiers, parameters, input locations, and archive
   identifiers before publication.
+## AI contribution records in commit messages
+
+Explicit user instruction (14 October 2026): every commit with any substantive
+scientific/manuscript/analysis contribution from an AI assistant must include
+an AI contribution section in its commit message. This includes analysis code,
+method changes, figures and captions. Do not describe such work merely as
+language polishing. This record will later support an author-reviewed AI-use
+disclosure in Materials and Methods under AGU's AI Tools Policy:
+https://www.agu.org/publications/authors/policies
+
+Use a section such as:
+
+AI assistance:
+- Tool: OpenAI Codex (record the actual tool; include model/version only when
+  reliably known, never infer it).
+- Contribution: concrete files, code, analysis choices, generated text or figures
+  created or modified with AI assistance.
+- Provenance: for imported figures, identify source repository, commit and script;
+  record uncommitted source changes if applicable. Distinguish plotting model
+  output with code from generative image creation.
+- Validation: checks actually performed by the assistant and checks actually
+  confirmed by a human. Do not imply co-author/scientific approval from a
+  successful build or an approval of layout; state outstanding review if relevant.
+
+Include this information in proposed commit messages as well as commits made
+by the assistant. Keep the title concise and put details in the body. Do not
+rewrite existing commit history to add disclosures without explicit permission.
+
+Manuscript text changes require Hanno's prior approval so he can consult
+co-authors. An authorization to edit a figure or code is not blanket permission
+to revise manuscript prose or insert the final AI-use statement.
