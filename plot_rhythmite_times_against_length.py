@@ -108,7 +108,7 @@ def fit_scores(observed, predicted, parameter_count):
 
 def plot_times(
     model_lengths, times, marlpde_lengths, marlpde_onsets,
-    *, output_stem="rhythmite_marlpde_onset", show=True,
+    *, output_stem="figures/rhythmite_marlpde_onset", show=True,
 ):
     """Compare measured onsets, show paired differences, and export the figure."""
     lengths = np.asarray(model_lengths, dtype=float)
@@ -210,9 +210,10 @@ def plot_times(
             paired_lengths, differences, "D-", color="tab:orange",
             markersize=4,
         )
-    difference_ax.set_ylabel(
-        "Relative difference in $t_\\mathrm{onset}$ [%]\n"
-        "100 × (Marlpde - Rhythmite) / Rhythmite"
+    difference_ax.set_ylabel("Onset difference [%]")
+    difference_ax.text(
+        0.98, 0.95, "100 × (Marlpde − Rhythmite) / Rhythmite",
+        transform=difference_ax.transAxes, ha="right", va="top", fontsize=8,
     )
     difference_ax.set_xlabel("model length L [cm]")
     difference_ax.grid(axis="y", color="0.9")
@@ -221,6 +222,7 @@ def plot_times(
     ax.legend(loc="upper left", bbox_to_anchor=(0, 0.85), frameon=False, fontsize=9)
     fig.align_ylabels()
     output_stem = Path(output_stem)
+    output_stem.parent.mkdir(parents=True, exist_ok=True)
     for extension in ("pdf", "svg"):
         fig.savefig(output_stem.with_suffix(f".{extension}"), bbox_inches="tight")
     if show:
@@ -233,7 +235,7 @@ def main():
         description="Plot Rhythmite and Marlpde onset times and their paired differences."
     )
     parser.add_argument(
-        "--output-stem", default="rhythmite_marlpde_onset",
+        "--output-stem", default="figures/rhythmite_marlpde_onset",
         help="path without extension for the PDF and SVG figures",
     )
     parser.add_argument(
