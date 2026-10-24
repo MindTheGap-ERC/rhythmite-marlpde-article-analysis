@@ -188,8 +188,8 @@ def plot_times(
         )
     difference_ax.set_ylabel("Onset difference [%]")
     difference_ax.text(
-        0.98, 0.95, "100 × (Marlpde − Rhythmite) / Rhythmite",
-        transform=difference_ax.transAxes, ha="right", va="top", fontsize=8,
+        0.98, 0.05, "100 × (Marlpde − Rhythmite) / Rhythmite",
+        transform=difference_ax.transAxes, ha="right", va="bottom", fontsize=8,
     )
     difference_ax.set_xlabel("model length L [cm]")
     difference_ax.grid(axis="y", color="0.9")
