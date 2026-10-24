@@ -1,0 +1,344 @@
+{
+  "measurement_depth_cm": 500,
+  "method": "Linear interpolation; Marlpde L=500 linearly extrapolated from last two cell centres. Rhythmite uniform grid checked against rounded VTU coordinates; time from paired ASCII, not VTU plotting coordinates.",
+  "rhythmite_tstar_years": 13190.0,
+  "rhythmite_xstar_cm": 1319.0,
+  "rows": [
+    {
+      "L": 500,
+      "rhythmite_vtu": "/home/hanno/Dropbox/eScienceCenter/UU_Research_Drive_NextCloud/MindtheGap_Projectfolder/Diagenetic_model/rhythmite_manuscript_runs/resolution/200nnx/solution.vtu",
+      "rhythmite_ascii": "/home/hanno/Dropbox/eScienceCenter/UU_Research_Drive_NextCloud/MindtheGap_Projectfolder/Diagenetic_model/rhythmite_manuscript_runs/resolution/200nnx/solution_x_000199.ascii",
+      "marlpde_hdf5": "/home/hanno/Dropbox/eScienceCenter/AstroTOM/Code/Results/L_500/LMAHeureuxPorosityDiff.hdf5",
+      "rhythmite_nodes_cm": [
+        497.48743718592965,
+        500.0
+      ],
+      "marlpde_nodes_cm": [
+        496.25,
+        498.75
+      ],
+      "validation": {
+        "c_co": {
+          "max_abs_error": 0.0,
+          "within_export_rounding": true
+        },
+        "u": {
+          "max_abs_error": 5.000000000032756e-06,
+          "within_export_rounding": true
+        }
+      },
+      "rhythmite": {
+        "onset": 153.313965,
+        "zero": 144.84763375,
+        "minimum": 157.83154
+      },
+      "rhythmite_bottom_vtu": {
+        "onset": 153.313965,
+        "zero": 144.84763375,
+        "minimum": 157.83154
+      },
+      "rhythmite_bottom_ascii": {
+        "onset": 153.313965,
+        "zero": 144.84758507826217,
+        "minimum": 157.83154
+      },
+      "marlpde": {
+        "onset": 153.3337499999971
+      }
+    },
+    {
+      "L": 625,
+      "rhythmite_vtu": "/home/hanno/Dropbox/eScienceCenter/UU_Research_Drive_NextCloud/MindtheGap_Projectfolder/Diagenetic_model/rhythmite_manuscript_runs/Larger_system/L_625/solution.vtu",
+      "rhythmite_ascii": "/home/hanno/Dropbox/eScienceCenter/UU_Research_Drive_NextCloud/MindtheGap_Projectfolder/Diagenetic_model/rhythmite_manuscript_runs/Larger_system/L_625/solution_x_000249.ascii",
+      "marlpde_hdf5": "/home/hanno/Dropbox/eScienceCenter/AstroTOM/Code/Results/L_625/LMAHeureuxPorosityDiff.hdf5",
+      "rhythmite_nodes_cm": [
+        499.4979919678715,
+        502.00803212851406
+      ],
+      "marlpde_nodes_cm": [
+        498.75,
+        501.25
+      ],
+      "validation": {
+        "c_co": {
+          "max_abs_error": 0.0,
+          "within_export_rounding": true
+        },
+        "u": {
+          "max_abs_error": 5.000000000032756e-06,
+          "within_export_rounding": true
+        }
+      },
+      "rhythmite": {
+        "onset": 372.1558500000001,
+        "zero": 348.38888839966137,
+        "minimum": 376.8383
+      },
+      "rhythmite_bottom_vtu": {
+        "onset": 372.1558500000001,
+        "zero": 348.40714322033904,
+        "minimum": 376.8383
+      },
+      "rhythmite_bottom_ascii": {
+        "onset": 372.1558500000001,
+        "zero": 348.40706307300445,
+        "minimum": 376.8383
+      },
+      "marlpde": {
+        "onset": 371.3644499999959
+      }
+    },
+    {
+      "L": 750,
+      "rhythmite_vtu": "/home/hanno/Dropbox/eScienceCenter/UU_Research_Drive_NextCloud/MindtheGap_Projectfolder/Diagenetic_model/rhythmite_manuscript_runs/Larger_system/L_750/solution.vtu",
+      "rhythmite_ascii": "/home/hanno/Dropbox/eScienceCenter/UU_Research_Drive_NextCloud/MindtheGap_Projectfolder/Diagenetic_model/rhythmite_manuscript_runs/Larger_system/L_750/solution_x_000299.ascii",
+      "marlpde_hdf5": "/home/hanno/Dropbox/eScienceCenter/AstroTOM/Code/Results/L_750/LMAHeureuxPorosityDiff.hdf5",
+      "rhythmite_nodes_cm": [
+        499.1638795986622,
+        501.67224080267556
+      ],
+      "marlpde_nodes_cm": [
+        498.7499999999999,
+        501.2499999999999
+      ],
+      "validation": {
+        "c_co": {
+          "max_abs_error": 0.0,
+          "within_export_rounding": true
+        },
+        "u": {
+          "max_abs_error": 5.000000000032756e-06,
+          "within_export_rounding": true
+        }
+      },
+      "rhythmite": {
+        "onset": 784.640125,
+        "zero": 734.4731069565217,
+        "minimum": 790.7405
+      },
+      "rhythmite_bottom_vtu": {
+        "onset": 784.9369,
+        "zero": 734.57748,
+        "minimum": 790.7405
+      },
+      "rhythmite_bottom_ascii": {
+        "onset": 784.9369,
+        "zero": 734.5776411026242,
+        "minimum": 790.7405
+      },
+      "marlpde": {
+        "onset": 781.5074999999379
+      }
+    },
+    {
+      "L": 875,
+      "rhythmite_vtu": "/home/hanno/Dropbox/eScienceCenter/UU_Research_Drive_NextCloud/MindtheGap_Projectfolder/Diagenetic_model/rhythmite_manuscript_runs/Larger_system/L_875/solution.vtu",
+      "rhythmite_ascii": "/home/hanno/Dropbox/eScienceCenter/UU_Research_Drive_NextCloud/MindtheGap_Projectfolder/Diagenetic_model/rhythmite_manuscript_runs/Larger_system/L_875/solution_x_000349.ascii",
+      "marlpde_hdf5": "/home/hanno/Dropbox/eScienceCenter/AstroTOM/Code/Results/L_875/LMAHeureuxPorosityDiff.hdf5",
+      "rhythmite_nodes_cm": [
+        498.92550143266476,
+        501.43266475644697
+      ],
+      "marlpde_nodes_cm": [
+        498.75,
+        501.25
+      ],
+      "validation": {
+        "c_co": {
+          "max_abs_error": 0.0,
+          "within_export_rounding": true
+        },
+        "u": {
+          "max_abs_error": 5.000000000032756e-06,
+          "within_export_rounding": true
+        }
+      },
+      "rhythmite": {
+        "onset": 1512.9259749999997,
+        "zero": 1423.3675465437786,
+        "minimum": 1526.3468
+      },
+      "rhythmite_bottom_vtu": {
+        "onset": 1513.519525,
+        "zero": 1423.624356451613,
+        "minimum": 1526.4787
+      },
+      "rhythmite_bottom_ascii": {
+        "onset": 1513.519525,
+        "zero": 1423.624563489316,
+        "minimum": 1526.4787
+      },
+      "marlpde": {
+        "onset": 1506.6277499999871
+      }
+    },
+    {
+      "L": 1000,
+      "rhythmite_vtu": "/home/hanno/Dropbox/eScienceCenter/UU_Research_Drive_NextCloud/MindtheGap_Projectfolder/Diagenetic_model/rhythmite_manuscript_runs/Larger_system/L_1000/solution.vtu",
+      "rhythmite_ascii": "/home/hanno/Dropbox/eScienceCenter/UU_Research_Drive_NextCloud/MindtheGap_Projectfolder/Diagenetic_model/rhythmite_manuscript_runs/Larger_system/L_1000/solution_x_000399.ascii",
+      "marlpde_hdf5": "/home/hanno/Dropbox/eScienceCenter/AstroTOM/Code/Results/L_1000/LMAHeureuxPorosityDiff.hdf5",
+      "rhythmite_nodes_cm": [
+        498.7468671679198,
+        501.2531328320802
+      ],
+      "marlpde_nodes_cm": [
+        498.75,
+        501.25
+      ],
+      "validation": {
+        "c_co": {
+          "max_abs_error": 0.0,
+          "within_export_rounding": true
+        },
+        "u": {
+          "max_abs_error": 5.000000000032756e-06,
+          "within_export_rounding": true
+        }
+      },
+      "rhythmite": {
+        "onset": 2778.80325,
+        "zero": 2618.6694941348974,
+        "minimum": 2804.194
+      },
+      "rhythmite_bottom_vtu": {
+        "onset": 2780.12225,
+        "zero": 2619.2013489736073,
+        "minimum": 2804.194
+      },
+      "rhythmite_bottom_ascii": {
+        "onset": 2780.12225,
+        "zero": 2619.2003811880318,
+        "minimum": 2804.194
+      },
+      "marlpde": {
+        "onset": 2773.19749999939
+      }
+    },
+    {
+      "L": 1125,
+      "rhythmite_vtu": "/home/hanno/Dropbox/eScienceCenter/UU_Research_Drive_NextCloud/MindtheGap_Projectfolder/Diagenetic_model/rhythmite_manuscript_runs/Larger_system/L_1125_longer_integration/solution.vtu",
+      "rhythmite_ascii": "/home/hanno/Dropbox/eScienceCenter/UU_Research_Drive_NextCloud/MindtheGap_Projectfolder/Diagenetic_model/rhythmite_manuscript_runs/Larger_system/L_1125_longer_integration/solution_x_000449.ascii",
+      "marlpde_hdf5": "/home/hanno/Dropbox/eScienceCenter/AstroTOM/Code/Results/L_1125/LMAHeureuxPorosityDiff.hdf5",
+      "rhythmite_nodes_cm": [
+        498.60801781737194,
+        501.11358574610244
+      ],
+      "marlpde_nodes_cm": [
+        498.75,
+        501.25
+      ],
+      "validation": {
+        "c_co": {
+          "max_abs_error": 0.0,
+          "within_export_rounding": true
+        },
+        "u": {
+          "max_abs_error": 5.000000000032756e-06,
+          "within_export_rounding": true
+        }
+      },
+      "rhythmite": {
+        "onset": 4955.15325,
+        "zero": 4661.026033158813,
+        "minimum": 4991.096
+      },
+      "rhythmite_bottom_vtu": {
+        "onset": 4957.79125,
+        "zero": 4662.002047120419,
+        "minimum": 4992.415
+      },
+      "rhythmite_bottom_ascii": {
+        "onset": 4957.79125,
+        "zero": 4661.999833727924,
+        "minimum": 4992.415
+      },
+      "marlpde": {
+        "onset": 4948.8879999974115
+      }
+    },
+    {
+      "L": 1250,
+      "rhythmite_vtu": "/home/hanno/Dropbox/eScienceCenter/UU_Research_Drive_NextCloud/MindtheGap_Projectfolder/Diagenetic_model/rhythmite_manuscript_runs/Larger_system/L_1250_longer_integration/solution.vtu",
+      "rhythmite_ascii": "/home/hanno/Dropbox/eScienceCenter/UU_Research_Drive_NextCloud/MindtheGap_Projectfolder/Diagenetic_model/rhythmite_manuscript_runs/Larger_system/L_1250_longer_integration/solution_x_000499.ascii",
+      "marlpde_hdf5": "/home/hanno/Dropbox/eScienceCenter/AstroTOM/Code/Results/L_1250/LMAHeureuxPorosityDiff.hdf5",
+      "rhythmite_nodes_cm": [
+        498.49699398797594,
+        501.00200400801606
+      ],
+      "marlpde_nodes_cm": [
+        498.75,
+        501.25
+      ],
+      "validation": {
+        "c_co": {
+          "max_abs_error": 0.0,
+          "within_export_rounding": true
+        },
+        "u": {
+          "max_abs_error": 5.000000000032756e-06,
+          "within_export_rounding": true
+        }
+      },
+      "rhythmite": {
+        "onset": 8662.86225,
+        "zero": 8125.3038,
+        "minimum": 8705.4
+      },
+      "rhythmite_bottom_vtu": {
+        "onset": 8670.11675,
+        "zero": 8126.939844036698,
+        "minimum": 8708.038
+      },
+      "rhythmite_bottom_ascii": {
+        "onset": 8670.11675,
+        "zero": 8126.9374964664385,
+        "minimum": 8708.038
+      },
+      "marlpde": {
+        "onset": 8657.42137499404
+      }
+    },
+    {
+      "L": 1625,
+      "rhythmite_vtu": "/home/hanno/Dropbox/eScienceCenter/UU_Research_Drive_NextCloud/MindtheGap_Projectfolder/Diagenetic_model/rhythmite_manuscript_runs/Larger_system/L_1625/solution.vtu",
+      "rhythmite_ascii": "/home/hanno/Dropbox/eScienceCenter/UU_Research_Drive_NextCloud/MindtheGap_Projectfolder/Diagenetic_model/rhythmite_manuscript_runs/Larger_system/L_1625/solution_x_000649.ascii",
+      "marlpde_hdf5": "/home/hanno/Dropbox/eScienceCenter/AstroTOM/Code/Results/L_1625/LMAHeureuxPorosityDiff.hdf5",
+      "rhythmite_nodes_cm": [
+        498.26656394453005,
+        500.7704160246533
+      ],
+      "marlpde_nodes_cm": [
+        498.75,
+        501.25
+      ],
+      "validation": {
+        "c_co": {
+          "max_abs_error": 0.0,
+          "within_export_rounding": true
+        },
+        "u": {
+          "max_abs_error": 5.000000000032756e-06,
+          "within_export_rounding": true
+        }
+      },
+      "rhythmite": {
+        "onset": 44245.854999999996,
+        "zero": 41179.6551369606,
+        "minimum": 44289.382
+      },
+      "rhythmite_bottom_vtu": {
+        "onset": 44280.8085,
+        "zero": 41185.96342857143,
+        "minimum": 44294.658
+      },
+      "rhythmite_bottom_ascii": {
+        "onset": 44280.8085,
+        "zero": 41185.971129166624,
+        "minimum": 44294.658
+      },
+      "marlpde": {
+        "onset": 44219.475
+      }
+    }
+  ]
+}

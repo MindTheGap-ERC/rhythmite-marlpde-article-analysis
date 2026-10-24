@@ -104,7 +104,7 @@ def fit_scores(observed, predicted, parameter_count):
 
 def plot_times(
     model_lengths, times, marlpde_lengths, marlpde_onsets,
-    *, output_stem="figures/rhythmite_marlpde_onset", show=True,
+    *, output_stem="figures/rhythmite_marlpde_onset", show=True, measurement_label=None,
 ):
     """Compare measured onsets, show paired differences, and export the figure."""
     lengths = np.asarray(model_lengths, dtype=float)
@@ -193,6 +193,8 @@ def plot_times(
     )
     difference_ax.set_xlabel("model length L [cm]")
     difference_ax.grid(axis="y", color="0.9")
+    if measurement_label:
+        ax.set_title(measurement_label)
     ax.set_yscale("log")
     ax.set_ylabel("time [kyr] (log scale)")
     ax.legend(loc="upper left", bbox_to_anchor=(0, 0.85), frameon=False, fontsize=9)

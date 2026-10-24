@@ -96,3 +96,33 @@ records settings; `sampled_solution.npz` is written if solve_ivp returns.
 These are diagnostic artifacts, not the normal manuscript HDF5 input.
 Use a new output directory for every run. For a brief setup check, optionally
 add `--end-time 0.000002` (dimensionless time).
+
+## Fixed measurement depth: 500 cm
+
+On branch `analysis/fixed-depth-500cm`, generate the replacement candidate with:
+
+```bash
+MPLBACKEND=Agg pipenv run python plot_fixed_depth.py \
+  --rhythmite-runs /path/to/rhythmite_manuscript_runs \
+  --marlpde-results /path/to/Results \
+  --output-stem figures/rhythmite_marlpde_onset_500cm
+```
+
+This reads the eight original Rhythmite `solution.vtu` files (about 11 GB in
+all) and pairs each with its bottom ASCII time axis. VTU horizontal coordinates
+are plotting coordinates, not physical time; exported depth order is reversed.
+The reader checks each VTU bottom concentration and velocity series against
+ASCII within export rounding. Run without Python `-O` to retain input checks.
+Peak memory is several hundred MB; only one field array is parsed at a time.
+
+Both models are sampled at 500 cm by linear spatial interpolation. For Marlpde
+L=500 cm, the last two cell centres (496.25 and 498.75 cm) are used for linear
+extrapolation; this is a measurement reconstruction, not a changed boundary
+condition. Rhythmite L=500 cm uses its boundary node directly. The JSON output
+records source paths, bracketing depths, validation errors and all event times.
+Rhythmite scales default to Tstar=13190 years and Xstar=1319 cm; flags allow
+explicit overrides. Marlpde coordinates and Tstar come from HDF5 metadata.
+
+Onset detection and relative-error fitting use the existing methods. The output
+PDF/SVG has a fixed-depth title; the old bottom figure is retained for comparison.
+No raw input is copied into this repository and no simulations are rerun.

@@ -18,7 +18,17 @@ model implementation repository.
 - After changing the analysis, run the full figure command from `README.md` and
   inspect the PDF visually before committing.
 
-## Analysis definition
+## Fixed-depth branch — 24 October 2026
+
+Explicit user decision: replace bottom-node diagnostics with measurements at
+500 cm for Figure 5. Interpolation/extrapolation is authorized. Work on
+analysis/fixed-depth-500cm; do not modify the manuscript or merge/commit without
+an instruction. The historical bottom analysis below remains a validation
+reference. Use plot_fixed_depth.py for the fixed-depth figure and record the
+actual bracketing nodes, source files, and VTU/ASCII validation in its JSON.
+Do not rerun simulations unless missing data make this necessary and discussed.
+
+## Analysis definition (historical bottom-node figure)
 
 - Determine onset from cCO3 at the deepest grid node.
 - Use peak prominence 0.01 and require six alternating extrema.
